@@ -3,7 +3,10 @@
 
 const search = require('./search')
 const { getRandomSkinTone } = require('./utils')
-const pasteByDefault = getenv('snippetapp')
+
+// Modification: paste by default
+// const pasteByDefault = getenv('snippetapp')
+const pasteByDefault = true
 const skinTone = getSkinTone()
 
 function getenv (name) {
@@ -31,7 +34,10 @@ function getSkinTone () {
 // Note: In JXA, console.log writes to stderr instead of stdout
 function run (argv) {
   const query = argv[0]
-  const found = search(query, skinTone, pasteByDefault)
+
+  const workflowPath = $.getenv('alfred_preferences') + '/workflows/' + $.getenv('alfred_workflow_uid') + '/'
+
+  const found = search(query, skinTone, pasteByDefault, workflowPath)
   console.log(JSON.stringify(found))
 }
 

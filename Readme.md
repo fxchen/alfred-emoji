@@ -1,3 +1,11 @@
+# Changelog
+
+Forks https://github.com/jsumners/alfred-emoji
+
+* Changes default paste behavior
+* Changes alt to return path of the emoji
+* To update, check out locally. Press "sync" on github.com. fetch master, perform a rebase against origin/master, resolve issues.
+
 # alfred-emoji
 
 [![Build Status](https://travis-ci.org/jsumners/alfred-emoji.svg?branch=master)](https://travis-ci.org/jsumners/alfred-emoji)
@@ -31,19 +39,16 @@ into macOS.
 emoji [query]
 ```
 
-Press <kbd>return</kbd> (↵): **Copy the symbol** of the selected emoji (e.g. 🤣) to
+Press <kbd>return</kbd> (↵): **Paste the symbol** of the selected emoji (e.g. 🤣) to
 your clipboard.
 
-Press <kbd>alt</kbd>+<kbd>return</kbd> (⌥↵): **Copy the code** of the selected emoji)
-(e.g. `:rofl:`) to your clipboard.
+Press <kbd>alt</kbd>+<kbd>return</kbd> (⌥↵): **Paste the path** of the selected emoji)
+(e.g. `rofl`) to your clipboard.
 
-Press <kbd>ctrl</kbd>+<kbd>return</kbd> (⌃↵): **Copy the codepoint** **of** the selected emoji)
-(e.g. `U+1F923`) to your clipboard.
-
-Press <kbd>shift</kbd>+<kbd>return</kbd> (⇧↵): **Copy the default symbol** of the selected emoji)
+Press <kbd>shift</kbd>+<kbd>return</kbd> (⇧↵): **Paste the default symbol** of the selected emoji)
 (e.g. 🤣) to your clipboard without skin tone modifier.
 
-Press <kbd>cmd</kbd>+<kbd>return</kbd> (⌘↵): **Paste the symbol** of the selected
+Press <kbd>cmd</kbd>+<kbd>return</kbd> (⌘↵): **Copy the symbol** of the selected
 emoji (e.g. 🤣) directly to your frontmost application.
 
 ### Set skin tone

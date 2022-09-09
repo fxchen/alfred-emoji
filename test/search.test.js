@@ -77,11 +77,12 @@ test('enables autocomplete', (t) => {
   t.ok(found.items[0].autocomplete === 'thinking face')
 })
 
-test('enables alt-modifier', (t) => {
-  t.plan(1)
-  const found = search('hear_no_evil')
-  t.ok(found.items[0].mods.alt.arg === ':hear_no_evil_monkey:')
-})
+// Disbale alt test
+// test('enables alt-modifier', (t) => {
+//   t.plan(1)
+//   const found = search('hear_no_evil')
+//   t.ok(found.items[0].mods.alt.arg === ':hear_no_evil_monkey:')
+// })
 
 test('unique results', (t) => {
   t.plan(1)

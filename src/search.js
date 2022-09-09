@@ -24,14 +24,20 @@ let modifier
 let verb = 'Copy'
 let preposition = 'to clipboard'
 
+let workflowPath
+
 const resetWordsForPasteByDefault = () => {
   verb = 'Paste'
-  preposition = 'as snippet'
+  preposition = 'to frontmost app'
 }
 
 const setSkinToneModifier = (tone) => {
   skinTone = tone
   modifier = skinTone ? modifiers[skinTone] : null
+}
+
+const setWorkflowPath = (path) => {
+  workflowPath = (path || '')
 }
 
 const addModifier = (emoji, char, modifier) => {
@@ -74,10 +80,10 @@ const alfredItem = (emojiDetails, emojiSymbol) => {
     autocomplete: name,
     icon: { path: `./icons/${icon}.png` },
     mods: {
-      // copy a code for the emoji, e.g. :thumbs_down:
+      // copy a path for the emoji, e.g. :thumbs_down:
       alt: {
-        subtitle: `${verb} ":${emojiDetails.slug}:" (${emojiSymbol}) ${preposition}`,
-        arg: `:${emojiDetails.slug}:`,
+        subtitle: `${verb} "${workflowPath}/icons/${emojiDetails.slug}.png" (${emojiSymbol}) ${preposition}`,
+        arg: `${workflowPath}/icons/${emojiDetails.slug}.png`,
         icon: { path: `./icons/${emojiDetails.slug}.png` }
       },
       // copy the default symbol for the emoji, without skin tones
@@ -120,10 +126,10 @@ const matches = (terms) => {
 // :thumbs up: => ['thumbs', 'up']
 const parse = query => query.replace(/[:]/g, '').split(/\s+/)
 
-module.exports = function search (query, skinTone, pasteByDefault = false) {
+module.exports = function search (query, skinTone, pasteByDefault = false, path = '') {
   if (pasteByDefault) resetWordsForPasteByDefault()
-
   setSkinToneModifier(skinTone)
+  setWorkflowPath(path)
 
   if (!query) return all()
 
